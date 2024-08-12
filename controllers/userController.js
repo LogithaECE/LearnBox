@@ -35,7 +35,7 @@ exports.login = async (req, res) => {
   try {
     const user = await User.findOne({ email });
     if (!user) {
-      res.status(400).json("Invalid Email or Password");
+      res.status(400).json("Incorrect Email or Password");
     }
     const isMatch = await bcrypt.compare(password, user.password);
     if (!isMatch) {
