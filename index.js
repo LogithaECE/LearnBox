@@ -8,7 +8,7 @@ const orderRoutes = require("./routes/orderRoute");
 const favRoutes = require("./routes/favRoute");
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://localhost:27017/LearnBox").then(() => {
+mongoose.connect("mongodb+srv://logithaluckshmi:Hari2019.@cluster0.v4v6h1p.mongodb.net/LearnBox").then(() => {
   console.log("Connected to db");
 });
 
