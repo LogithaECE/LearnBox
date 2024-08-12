@@ -1,10 +1,11 @@
 const express = require("express");
+const cors = require("cors");
 const app = express();
 const productRoutes = require("./routes/productRoute");
 const userRoutes = require("./routes/userRoute");
 const cartRoutes = require("./routes/cartRoute");
 const orderRoutes = require("./routes/orderRoute");
-const favRoutes = require('./routes/favRoute')
+const favRoutes = require("./routes/favRoute");
 const mongoose = require("mongoose");
 
 mongoose.connect("mongodb://localhost:27017/LearnBox").then(() => {
@@ -12,6 +13,7 @@ mongoose.connect("mongodb://localhost:27017/LearnBox").then(() => {
 });
 
 app.use(express.json());
+app.use(cors());
 app.use("/products", productRoutes);
 app.use("/cart", cartRoutes);
 app.use("/user", userRoutes);
