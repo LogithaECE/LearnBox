@@ -28,3 +28,16 @@ exports.addProducts = async (req, res) => {
     console.log(err);
   }
 };
+exports.getProductById = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const product = await Product.findOne({ id: id });
+    if (!product) {
+      return res.status(404).send("Product not found");
+    }
+    res.send(product);
+  } catch (err) {
+    console.log(err);
+    res.status(500).send("Server error");
+  }
+};
